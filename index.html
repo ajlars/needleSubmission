@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+
+<head>
+<title>Table Calculator</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<body>
+	<h1> Table with Calculations </h1>
+	<!-- Set controller for the table -->
+	<div data-ng-controller="tableController">
+		<table>
+			<thead class="tableHead">
+				<th> Col 1 </th>
+				<th> Col 2 </th>
+				<th> Col 3 </th>
+				<th> Col 4 </th>
+				<th> Col 5 </th>
+				<th> Col 6 </th>
+				<th> Total </th>
+			</thead>
+			
+			<!-- Display all editable rows of the table -->
+			<tr class="tableBody" data-ng-repeat="row in rows">
+
+				<td>
+					<input type="text" data-ng-model="row.Col1" data-ng-change="update()"/>
+				</td>
+				<td>
+					<input type="text" data-ng-model="row.Col2" data-ng-change="update()"/>
+				</td>
+				<td>
+					<input type="text" data-ng-model="row.Col3" data-ng-change="update()"/>
+				</td>
+				<td>
+					<input type="text" data-ng-model="row.Col4" data-ng-change="update()"/>
+				</td>
+				<td>
+					<input type="text" data-ng-model="row.Col5" data-ng-change="update()"/>
+				</td>
+				<td>
+					<input type="text" data-ng-model="row.Col6" data-ng-change="update()"/>
+				</td>
+				<!-- The final cell of each row displays a total only and is not editable -->
+				<td>
+					{{ row.Col7 | currency }}
+				</td>
+			</tr>
+			
+			<!-- The final row totals each column except for the last per spec -->
+			<tr class="tableFoot">
+				<td>
+					{{ rowTotals.Col1 | currency }}
+				</td>
+				<td>
+					{{ rowTotals.Col2 | currency }}
+				</td>
+				<td>
+					{{ rowTotals.Col3 | currency }}
+				</td>
+				<td>
+					{{ rowTotals.Col4 | currency }}
+				</td>
+				<td>
+					{{ rowTotals.Col5 | currency }}
+				</td>
+				<td>
+					{{ rowTotals.Col6 | currency }}
+				</td>
+				<td>	
+				</td>
+		</table>
+	</div>
+
+	<!-- Link AngularJS and our script -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
