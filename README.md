@@ -1,6 +1,9 @@
 # needleSubmission
+
 Table Calculator Application
+
 Author: Andrew Larson
+
 Date: 2/15/15
 
 Description:
